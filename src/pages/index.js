@@ -3,15 +3,14 @@ import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import Image from '../components/image'
+import '../styles/layout.css'
 
 const IndexPage = () => (
   <Layout>
-    <h1>Brian Burns</h1>
-    <p>Web development and data science</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
+    <div>
+      {/* <Image /> */}
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    {/* <Link to="/page-2/">Go to page 2</Link> */}
   </Layout>
 )
 

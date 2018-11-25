@@ -1,7 +1,11 @@
 module.exports = {
+
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Brian Burns: web development and data science',
+    description: 'Portfolio and blog for Brian Burns, focusing on web development and data science',
+    keywords: 'web development, react, graphql, blog, data science',
   },
+
   plugins: [
     'gatsby-plugin-react-helmet',
     {
@@ -19,8 +23,8 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#000',
+        theme_color: '#000',
         display: 'minimal-ui',
         icon: 'src/assets/images/grass128x128.jpg', // This path is relative to the root of the site.
       },
@@ -29,4 +33,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
+
 }
