@@ -11,16 +11,43 @@ body {
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-.layout {
-  margin: 0 auto;
-  max-width: 960;
-  padding: 0px 1.0875rem 1.45rem;
+body, html {
+  height: 100%;
 }
 
-.header {
-  background-image: url(../assets/images/austin-cc-argash.jpg);
+#___gatsby {
+  height: 100%;
+}
+#___gatsby div {
+  height: 100%;
 }
 
-h1 {
+
+.page {
+  /* margin: 0 auto; */
+  /* max-width: 960; */
+  /* padding: 0px 1.0875rem 1.45rem; */
+  /* height: 100%; */
+}
+
+.page {
+  /* background-image: url(../assets/images/austin-cc-argash1200x200.jpg); */
+  background-image: url(../assets/images/house-christopher-harris-55545-unsplash.jpg);
+  background-repeat: no-repeat;
+  /* background-size: 1200px 200px; */
+  background-size: cover;
+  background-position: center;
+  /* padding: 1em; */
+  /* width: 100%; */
+  height: 100%;
+}
+
+.header h1 {
   margin: 0;
+  padding: 0.5em;
+  font-size: 1em;
+  font-weight: normal;
+  color: rgba(255,255,255,0.9);
+  /* color: rgba(0,0,0,0.9); */
+  background: rgba(0,0,0,0.5);
 }
