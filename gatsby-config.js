@@ -6,6 +6,16 @@ module.exports = {
     keywords: 'web development, react, graphql, blog, data science',
   },
 
+  // site: {
+  //   projects: [
+  //     {
+  //       name: "Quilty",
+  //       description: "aoisjdoiajsd",
+  //       link: "apokpokoi",
+  //     },
+  //   ]
+  // },
+
   plugins: [
     'gatsby-plugin-react-helmet',
     {
