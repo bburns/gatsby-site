@@ -1,17 +1,27 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-// import Image from '../components/image'
 import '../styles/layout.css'
 
-const IndexPage = () => (
-  <div className="page">
-    <Layout>
-      {/* <Link to="/page-2/">Go to page 2</Link> */}
-    </Layout>
-  </div>
-)
+const IndexPage = (props) => {
+  const postList = props.data.allMarkdownRemark
+  return (
+    <div className="page">
+      <Layout>
+        {postList.edges.map(({ node }, i) => (
+          <Link to={node.fields.slug} className="link" >
+            <div className="post-list">
+              <h1>{node.frontmatter.title}</h1>
+              <span>{node.frontmatter.date}</span>
+              <p>{node.excerpt}</p>
+            </div>
+          </Link>
+        ))}
+      </Layout>
+    </div>
+  )
+}
 
 export default IndexPage
 
@@ -23,20 +33,19 @@ export const pageQuery = graphql`
         description
       }
     }
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          fields{
+            slug
+          }
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "MMMM Do YYYY")
+            title
+          }
+        }
+      }
+    }
   }
 `
-
-    // allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-    //   edges {
-    //     node {
-    //       excerpt
-    //       fields {
-    //         slug
-    //       }
-    //       frontmatter {
-    //         date(formatString: "MMMM DD, YYYY")
-    //         title
-    //       }
-    //     }
-    //   }
-    // }
