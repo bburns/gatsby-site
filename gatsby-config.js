@@ -6,15 +6,13 @@ module.exports = {
     keywords: 'web development, react, graphql, blog, data science',
   },
 
-  // site: {
-  //   projects: [
-  //     {
-  //       name: "Quilty",
-  //       description: "aoisjdoiajsd",
-  //       link: "apokpokoi",
-  //     },
-  //   ]
-  // },
+  // projects: {
+  //   {
+  //     name: "Quilty",
+  //     description: "aoisjdoiajsd",
+  //     link: "apokpokoi",
+  //   },
+  // }
 
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -23,6 +21,15 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
+      },
+    },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages`,
       },
     },
     'gatsby-transformer-sharp',
