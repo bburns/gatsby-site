@@ -10,13 +10,13 @@ const IndexPage = (props) => {
     <div className="page">
       <Layout>
         {postList.edges.map(({ node }, i) => (
-          <Link to={node.fields.slug} className="link" >
-            <div className="post-list">
+          <div className="post-list">
+            <Link to={node.fields.slug} className="link" >
               <h1>{node.frontmatter.title}</h1>
-              <span>{node.frontmatter.date}</span>
-              <p>{node.excerpt}</p>
-            </div>
-          </Link>
+            </Link>
+            <span>{node.frontmatter.date}</span>
+            <p>{node.excerpt}</p>
+          </div>
         ))}
       </Layout>
     </div>
