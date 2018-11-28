@@ -7,7 +7,7 @@
 // You can delete this file if you're not using it
 
 const path = require("path")
-const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`);
+const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`)
 
 
 // create posts from markdown files
@@ -20,10 +20,11 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMarkdownRemark (
         sort: { fields: [frontmatter___date], order: DESC }
-        limit: 50
+        limit: 1000
       ) {
         edges {
           node {
+            html
             fields {
               slug
             }
@@ -40,14 +41,19 @@ exports.createPages = ({ actions, graphql }) => {
           return reject(result.errors)
         }
 
-        const blogTemplate = path.resolve('./src/templates/blog-post.js');
+        const blogTemplate = path.resolve('./src/templates/blog-post.js')
+        const posts = result.data.allMarkdownRemark.edges
 
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        posts.forEach(post => {
+          // console.log(post)
+          const { node } = post
           createPage({
             path: node.fields.slug,
             component: blogTemplate,
             context: {
               slug: node.fields.slug,
+              title: node.frontmatter.title,
+              html: node.html,
             }, // additional data can be passed via context
           })
         })

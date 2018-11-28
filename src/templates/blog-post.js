@@ -3,13 +3,16 @@ import Layout from '../components/layout';
 import { graphql } from 'gatsby'
 
 function BlogPost(props) {
-    const post = props.data.markdownRemark;
-    const { title } = post.frontmatter;    
+    console.log(props)
+    // error - props.data is undefined!
+    // // const post = props.data.markdownRemark
+    // // const { title } = post.frontmatter
+    const { title, html } = props.pageContext
     return (
         <Layout>
             <div>
                 <h1>{title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                <div dangerouslySetInnerHTML={{ __html: html }} />
             </div>
         </Layout>
     )
@@ -18,8 +21,8 @@ function BlogPost(props) {
 export default BlogPost
 
 const query = graphql`
- query PostQuery($slug: String!) {
-     markdownRemark(fields: { slug: { eq: $slug } }) {
+ query PostQuery {
+     markdownRemark {
        html
        frontmatter {
         title
@@ -28,3 +31,14 @@ const query = graphql`
    }
 }
 `
+// const query = graphql`
+//  query PostQuery($slug: String!) {
+//      markdownRemark(fields: { slug: { eq: $slug } }) {
+//        html
+//        frontmatter {
+//         title
+//         description
+//        }
+//    }
+// }
+// `

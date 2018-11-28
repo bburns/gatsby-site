@@ -1,7 +1,7 @@
 module.exports = {
 
   siteMetadata: {
-    title: 'Brian Burns: web development and data science shop',
+    title: 'Brian Burns: web development and data science',
     description: 'Portfolio and blog for Brian Burns, focusing on web development and data science',
     keywords: 'web development, react, graphql, blog, data science',
   },
